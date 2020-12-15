@@ -4,7 +4,7 @@ const User = require("../../models/user");
 const auth = require("../../middleware/auth");
 ///Update User Prefrences
 
-router.post("/setUserPreferences", auth, async (req, res) => {
+router.post("/", auth, async (req, res) => {
   let user = await User.findById(req.user.id);
 
   if (!user) return res.status(404).json({ msg: "User not found" });
@@ -36,13 +36,19 @@ router.post("/setUserPreferences", auth, async (req, res) => {
 
     await User.findByIdAndUpdate(req.user.id, {
       $set: {
-        main_diet: req.body.main_diet,
+        diet: req.body.diet,
       },
     });
 
     await User.findByIdAndUpdate(req.user.id, {
       $set: {
-        caloriesNumber: req.body.caloriesNumber,
+        calories: req.body.calories,
+      },
+    });
+
+    await User.findByIdAndUpdate(req.user.id, {
+      $set: {
+        channels: req.body.channels,
       },
     });
     let userAfterSave = await User.findById(req.user.id);

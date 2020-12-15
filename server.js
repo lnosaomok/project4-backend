@@ -36,6 +36,10 @@ app.use(
   "/api/setUserPreferences",
   require("./routes/preferences/setUserPreferences")
 );
+app.use(
+  "/api/getUserPreferences",
+  require("./routes/preferences/getUserPreferences")
+);
 
 //app.use("/api/auth", require("./routes/auth/authenticationController"));
 
