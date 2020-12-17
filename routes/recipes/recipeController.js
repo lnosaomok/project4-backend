@@ -5,10 +5,13 @@ const auth = require("../../middleware/auth");
 const SavedRecipe = require("../../models/savedrecipes");
 
 router.post("/", auth, async (req, res) => {
-  const { recipe } = req.body;
+  const { recipe, type, timetoken } = req.body;
   const user = req.user.id;
   try {
-    await SavedRecipe.create({ recipe, user }, (err, savedRecipe) => {});
+    await SavedRecipe.create(
+      { recipe, user, type, timetoken },
+      (err, savedRecipe) => {}
+    );
     //res.json(savedRecipe);
   } catch (err) {
     console.error(err);
