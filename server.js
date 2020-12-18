@@ -40,8 +40,8 @@ app.use(
   require("./routes/preferences/getUserPreferences")
 );
 
-app.use("/api/recipes", require("./routes//recipes/recipeController"));
+app.use("/api/recipes", require("./routes/recipes/recipeController"));
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5100;
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));

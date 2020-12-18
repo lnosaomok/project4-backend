@@ -4,5 +4,6 @@ const SavedRecipeSchema = mongoose.Schema({
   user: { type: String },
   type: { type: String },
   timetoken: { type: String },
+  isRated: { type: Boolean, default: false },
 });
 module.exports = mongoose.model("SavedRecipe", SavedRecipeSchema);

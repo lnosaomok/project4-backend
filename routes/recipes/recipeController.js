@@ -31,4 +31,17 @@ router.get("/", auth, async (req, res) => {
   }
 });
 
+router.post("/update", auth, async (req, res) => {
+  console.log(req.body);
+  try {
+    await SavedRecipe.findByIdAndUpdate(req.body.id, {
+      $set: {
+        isRated: true,
+      },
+    });
+  } catch (err) {
+    console.error("message", err.message);
+    res.status(500).send("Server Error");
+  }
+});
 module.exports = router;
