@@ -31,15 +31,6 @@ app.use(express.json({ extended: false, limit: "50mb" }));
 
 app.use("/api/users", require("./routes/user/userController"));
 app.use("/api/auth", require("./routes/auth/authenticationController"));
-app.use(
-  "/api/setUserPreferences",
-  require("./routes/preferences/setUserPreferences")
-);
-app.use(
-  "/api/getUserPreferences",
-  require("./routes/preferences/getUserPreferences")
-);
-
 app.use("/api/recipes", require("./routes/recipes/recipeController"));
 
 const PORT = process.env.PORT || 5100;
