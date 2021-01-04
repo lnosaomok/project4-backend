@@ -33,6 +33,10 @@ app.use("/api/users", require("./routes/user/userController"));
 app.use("/api/auth", require("./routes/auth/authenticationController"));
 app.use("/api/recipes", require("./routes/recipes/recipeController"));
 
+app.get("/", (req, res) => {
+  res.send("Hello!");
+});
+
 const PORT = process.env.PORT || 5100;
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
