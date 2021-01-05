@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const db = mongoose.connection;
 const app = express();
+const cors = require("cors");
 const path = require("path");
 require("dotenv").config();
 
@@ -26,7 +27,7 @@ db.on("open", () => {});
 //Init Middleware
 
 app.use(express.json({ extended: false, limit: "50mb" }));
-
+app.use(cors());
 //ROUTES CONFIGURATION
 
 app.use("/api/users", require("./routes/user/userController"));
